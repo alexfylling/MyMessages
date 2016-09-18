@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -17,8 +16,6 @@ import java.util.List;
 public class Contacts extends AppCompatActivity {
     // The ListView
     private ListView listNames;
-
-    private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +34,10 @@ public class Contacts extends AppCompatActivity {
     }
 
     private void listContacts(){
-        // Android version is lesser than 6.0 or the permission is already granted.
-        List<String> contacts = getContactNames();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contacts);
-        listNames.setAdapter(adapter);
+
+            List<String> contacts = getContactNames();
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contacts);
+            listNames.setAdapter(adapter);
     }
 
     /**
